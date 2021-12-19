@@ -36,22 +36,22 @@ const [showLogin, setShowLogin] = useState(false);
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const newPin = {
-    //   username: currentUsername,
-    //   title,
-    //   desc,
-    //   rating: star,
-    //   lat: newplace.lat,
-    //   long: newplace.long,
-    // };
+    const newPin = {
+      username: currentUsername,
+      title,
+      desc,
+      rating: star,
+      lat: newplace.lat,
+      long: newplace.long,
+    };
 
-    // try {
-    //   const res = await axios.post("http://localhost:3000/pins/savepin", newPin);
-    //   setPins([...pins, res.data]);
-    //   setNewPlace(null);
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    try {
+      const res = await axios.post("https://travelmapback.herokuapp.com/pins/savepin", newPin);
+      setPins([...pins, res.data]);
+      setNewPlace(null);
+    } catch (err) {
+      console.log(err);
+    }
   };
   useEffect(() => {
     const getPins = async () => {
